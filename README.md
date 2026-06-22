@@ -2,6 +2,12 @@
 
 A clean static index for creative design resources.
 
+## Website
+
+```text
+https://guguli685-creator.github.io/swanq/
+```
+
 ## Deploy
 
 This repository is ready for GitHub Pages.
@@ -12,28 +18,68 @@ Recommended Pages settings:
 - Branch: main
 - Folder: /root
 
+## Author management
+
+The website uses GitHub as the author management system.
+
+Author edit page:
+
+```text
+https://github.com/guguli685-creator/swanq/edit/main/resources.txt
+```
+
+Only users with write permission to this repository can save changes. Other users can view the page, but cannot commit edits.
+
 ## Update resources
 
 Edit `resources.txt` instead of editing `index.html`.
 
-Format:
+### Basic format
+
+One resource uses two lines:
 
 ```text
-标题 | 分类 | 简短说明 | 链接 | 标签1,标签2,标签3 | 日期
+资源标题
+资源链接
 ```
 
 Example:
 
 ```text
-常用工具导航 | 工具 | 整理在线压缩、格式转换、配色、排版和效率工具。 | https://example.com | 工具,效率,导航 | 2026-06-22
+创意工具资料入口
+https://example.com
 ```
 
-Rules:
+Use `#` when the link is not ready:
 
-- One resource per line.
-- Use `#` when the link is not ready.
+```text
+创意工具资料入口
+#
+```
+
+### Category tabs
+
+Use `[Category]` to create tabs:
+
+```text
+[PS]
+资源标题
+资源链接
+
+[AI]
+资源标题
+资源链接
+```
+
+The website will automatically create tabs such as `全部`, `PS`, and `AI`.
+
+## Rules
+
+- One resource uses two lines: title and link.
+- Leave a blank line between resources for readability.
 - Lines starting with `#` are comments.
-- Do not use the vertical bar `|` inside titles or descriptions.
+- A single `#` can be used as an empty link.
+- Use `[Category]` to group resources into tabs.
 
 ## Notice
 
