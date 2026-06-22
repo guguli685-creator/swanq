@@ -47,16 +47,6 @@ https://example.com
 #
 ```
 
-## 作者管理
-
-作者管理页面：
-
-```text
-https://github.com/guguli685-creator/swanq/edit/main/resources.txt
-```
-
-登录拥有仓库写入权限的 GitHub 账号后，可以编辑并提交资源列表。其他用户可以访问网站，但不能保存仓库修改。
-
 ## GitHub Pages 部署设置
 
 推荐设置：
