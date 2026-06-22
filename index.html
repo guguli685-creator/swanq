@@ -118,6 +118,11 @@
       background: rgba(255, 255, 255, 0.76);
     }
 
+    .admin-inline {
+      margin-top: 18px;
+      width: fit-content;
+    }
+
     .hero-section {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.65fr);
@@ -314,6 +319,7 @@
     .guide-card.accent h2 { color: #fff; }
 
     .site-footer { display: flex; justify-content: space-between; gap: 14px; margin: 28px 0 20px; padding: 18px 4px; color: #667085; font-size: 13px; }
+    .site-footer a { color: var(--brand); font-weight: 800; }
 
     @media (max-width: 980px) {
       .desktop-nav { display: none; }
@@ -326,7 +332,7 @@
       .page-shell { width: min(100% - 22px, 1180px); }
       .site-header { top: 8px; margin-bottom: 26px; border-radius: 18px; }
       .brand { min-width: 0; }
-      .brand-text small, .header-action { display: none; }
+      .brand-text small { display: none; }
       .hero-copy { padding: 28px 22px; border-radius: 24px; }
       h1 { font-size: 42px; }
       .toolbar-section { align-items: stretch; flex-direction: column; }
@@ -334,6 +340,7 @@
       .resource-grid { grid-template-columns: 1fr; }
       .timeline-item { grid-template-columns: 1fr; gap: 6px; }
       .site-footer { flex-direction: column; }
+      .header-action { padding: 0 14px; }
     }
   </style>
 </head>
@@ -351,8 +358,9 @@
         <a href="#library">资源索引</a>
         <a href="#updates">更新记录</a>
         <a href="#about">说明</a>
+        <a href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
       </nav>
-      <a class="header-action" href="#library">开始浏览</a>
+      <a class="header-action" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
     </header>
 
     <main id="top">
@@ -408,6 +416,7 @@
           <p class="section-kicker">Update</p>
           <h2>只改 resources.txt</h2>
           <p>资源格式：标题 | 分类 | 简短说明 | 链接 | 标签1,标签2,标签3 | 日期。每条资源占一行，保存后等待 GitHub Pages 自动更新。</p>
+          <a class="primary-btn admin-inline" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">打开作者管理</a>
         </div>
         <div class="guide-card accent">
           <p class="section-kicker">Notice</p>
@@ -417,7 +426,7 @@
       </section>
     </main>
 
-    <footer class="site-footer"><span>© <span id="year"></span> SwanQ Creative Hub</span><span>Static site · No backend</span></footer>
+    <footer class="site-footer"><span>© <span id="year"></span> SwanQ Creative Hub</span><span><a href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a> · Static site · No backend</span></footer>
   </div>
 
   <script>
@@ -425,6 +434,7 @@
     let resources = [];
 
     const updates = [
+      { date: "2026-06-22", title: "加入作者管理入口", description: "作者管理按钮会跳转到 GitHub 的 resources.txt 编辑页面，由 GitHub 负责登录和权限判断。" },
       { date: "2026-06-22", title: "拆分资源数据", description: "资源列表改为读取 resources.txt，后续新增资源只需要编辑文本文件。" },
       { date: "2026-06-22", title: "静态页面上线", description: "完成 GitHub Pages 单页网站、分类筛选和搜索功能。" }
     ];
