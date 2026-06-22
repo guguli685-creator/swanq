@@ -1,86 +1,85 @@
 # SwanQ Creative Hub
 
-A clean static index for creative design resources.
+SwanQ Creative Hub 是一个轻量、干净的静态资源索引页，用来整理创意设计相关的入口链接。
 
-## Website
+官网地址：
 
 ```text
 https://guguli685-creator.github.io/swanq/
 ```
 
-## Deploy
+## 项目特点
 
-This repository is ready for GitHub Pages.
+- 纯静态页面，无需后端。
+- 支持 GitHub Pages 部署。
+- 支持搜索资源标题。
+- 支持标签页分组，例如 `[PS]`、`[AI]`、`[AE]`、`[PR]`。
+- 资源数据独立维护，只需要编辑 `resources.txt`。
+- 作者管理入口接入 GitHub 编辑页，由 GitHub 负责登录和仓库写入权限。
 
-Recommended Pages settings:
+## 资源更新方式
 
-- Source: Deploy from a branch
-- Branch: main
-- Folder: /root
+编辑仓库里的 `resources.txt`，不用修改 `index.html`。
 
-## Author management
-
-The website uses GitHub as the author management system.
-
-Author edit page:
-
-```text
-https://github.com/guguli685-creator/swanq/edit/main/resources.txt
-```
-
-Only users with write permission to this repository can save changes. Other users can view the page, but cannot commit edits.
-
-## Update resources
-
-Edit `resources.txt` instead of editing `index.html`.
-
-### Basic format
-
-One resource uses two lines:
+一条资源写两行：
 
 ```text
 资源标题
 资源链接
 ```
 
-Example:
+示例：
 
 ```text
+[PS]
 创意工具资料入口
+https://example.com
+
+[AI]
+设计工具资料入口
 https://example.com
 ```
 
-Use `#` when the link is not ready:
+没有链接时，第二行写 `#`：
 
 ```text
 创意工具资料入口
 #
 ```
 
-### Category tabs
+## 作者管理
 
-Use `[Category]` to create tabs:
+作者管理页面：
 
 ```text
-[PS]
-资源标题
-资源链接
-
-[AI]
-资源标题
-资源链接
+https://github.com/guguli685-creator/swanq/edit/main/resources.txt
 ```
 
-The website will automatically create tabs such as `全部`, `PS`, and `AI`.
+登录拥有仓库写入权限的 GitHub 账号后，可以编辑并提交资源列表。其他用户可以访问网站，但不能保存仓库修改。
 
-## Rules
+## GitHub Pages 部署设置
 
-- One resource uses two lines: title and link.
-- Leave a blank line between resources for readability.
-- Lines starting with `#` are comments.
-- A single `#` can be used as an empty link.
-- Use `[Category]` to group resources into tabs.
+推荐设置：
 
-## Notice
+```text
+Source: Deploy from a branch
+Branch: main
+Folder: /root
+```
 
-All listed resources should come from authorized, original, open-source, or publicly available sources.
+## 文件说明
+
+```text
+index.html      网站页面
+resources.txt   资源数据
+README.md       项目说明
+.nojekyll       GitHub Pages 静态发布配置
+```
+
+## 维护规则
+
+- 一条资源使用两行：标题和链接。
+- 多条资源之间建议空一行。
+- 使用 `[分类名]` 创建标签页。
+- 以 `#` 开头的行会被忽略。
+- 单独一个 `#` 可作为未补充链接。
