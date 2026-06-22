@@ -6,221 +6,48 @@
   <meta name="description" content="SwanQ Creative Hub - a clean static index for creative resources." />
   <title>SwanQ Creative Hub</title>
   <style>
-    :root {
-      --bg: #f6f7fb;
-      --card: rgba(255,255,255,.78);
-      --text: #111827;
-      --muted: #667085;
-      --line: rgba(15,23,42,.1);
-      --brand: #5b3ff2;
-      --brand2: #7c3aed;
-      --shadow: 0 24px 70px rgba(15,23,42,.12);
-      --soft: rgba(91,63,242,.1);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(124,58,237,.16), transparent 32rem),
-        radial-gradient(circle at top right, rgba(79,70,229,.12), transparent 28rem),
-        linear-gradient(145deg, #f8fafc, #eef2f9);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { border: 0; cursor: pointer; }
-
-    .wrap { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
-    .nav {
-      position: sticky;
-      top: 14px;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 14px 0 42px;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 16px 38px rgba(15,23,42,.08);
-    }
-
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .logo {
-      display: grid;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      border-radius: 14px;
-      color: white;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 12px 28px rgba(91,63,242,.28);
-    }
-    .brand strong { display: block; font-size: 15px; }
-    .brand small { display: block; color: var(--muted); font-size: 12px; }
-
-    .nav-links { display: flex; gap: 6px; padding: 6px; border: 1px solid var(--line); border-radius: 16px; background: rgba(248,250,252,.78); }
-    .nav-links a { padding: 9px 14px; border-radius: 12px; color: #475467; font-size: 14px; }
-    .nav-links a:hover { background: white; color: var(--text); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: 14px;
-      color: white;
-      font-size: 14px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 14px 30px rgba(91,63,242,.22);
-    }
-    .btn.secondary { color: var(--text); border: 1px solid var(--line); background: rgba(255,255,255,.76); box-shadow: none; }
-
-    .hero { display: grid; grid-template-columns: 1.05fr .68fr; gap: 26px; margin-bottom: 34px; }
-    .card { border: 1px solid var(--line); border-radius: 28px; background: var(--card); backdrop-filter: blur(18px); box-shadow: var(--shadow); }
-    .hero-main { padding: clamp(28px, 5vw, 58px); }
-    .kicker { margin: 0 0 12px; color: var(--brand); font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-    h1 { max-width: 760px; margin: 0 0 18px; font-size: clamp(42px, 8vw, 78px); line-height: .96; letter-spacing: -.07em; }
-    h2 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.05em; }
-    p { margin-top: 0; }
-    .lead { max-width: 650px; margin-bottom: 30px; color: var(--muted); font-size: clamp(16px, 2vw, 19px); line-height: 1.8; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    .side { padding: 18px; display: flex; flex-direction: column; gap: 16px; }
-    .status { min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.68); display: flex; align-items: center; gap: 8px; color: #475467; font-size: 13px; font-weight: 800; }
-    .dot { width: 9px; height: 9px; border-radius: 99px; background: #10b981; box-shadow: 0 0 0 6px rgba(16,185,129,.12); }
-    .feature { flex: 1; min-height: 300px; padding: 24px; border-radius: 24px; color: white; display: flex; flex-direction: column; justify-content: flex-end; background: radial-gradient(circle at top right, rgba(255,255,255,.22), transparent 18rem), linear-gradient(135deg, #4f46e5, #111827); }
-    .feature span { width: fit-content; margin-bottom: 14px; padding: 7px 10px; border-radius: 99px; background: rgba(255,255,255,.16); font-size: 12px; font-weight: 900; }
-    .feature h2 { font-size: 30px; }
-    .feature p { margin: 0; color: rgba(255,255,255,.78); line-height: 1.7; }
-    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .stats div { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.72); }
-    .stats strong { display: block; font-size: 28px; letter-spacing: -.05em; }
-    .stats span { color: var(--muted); font-size: 13px; }
-
-    .toolbar { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin: 26px 0 14px; }
-    .search { flex: 0 1 430px; min-height: 52px; padding: 0 16px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.78); box-shadow: 0 16px 38px rgba(15,23,42,.08); }
-    .search input { width: 100%; height: 52px; border: 0; outline: 0; background: transparent; color: var(--text); }
-
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .item { min-height: 205px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: var(--card); box-shadow: 0 16px 38px rgba(15,23,42,.08); display: flex; flex-direction: column; }
-    .badge { width: fit-content; margin-bottom: 18px; padding: 7px 10px; border-radius: 99px; color: var(--brand); background: var(--soft); font-size: 12px; font-weight: 900; }
-    .item h3 { margin: 0 0 10px; font-size: 22px; line-height: 1.32; letter-spacing: -.04em; }
-    .item p { margin: 0; color: var(--muted); line-height: 1.7; }
-    .open { margin-top: auto; min-height: 44px; border-radius: 14px; background: #111827; color: white; font-weight: 900; display: grid; place-items: center; }
-    .open.disabled { background: #eef2f7; color: #98a2b3; pointer-events: none; }
-
-    .empty { display: none; margin-top: 18px; padding: 30px; border: 1px dashed rgba(15,23,42,.16); border-radius: 24px; text-align: center; background: rgba(255,255,255,.58); }
-    .empty.show { display: block; }
-    .empty span { display: block; margin-bottom: 8px; font-size: 20px; font-weight: 900; }
-    .empty p { margin: 0; color: var(--muted); }
-
-    .section { margin-top: 34px; padding: clamp(22px, 4vw, 34px); }
-    .timeline { display: grid; gap: 12px; margin-top: 20px; }
-    .log { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.7); }
-    .log-date { color: var(--brand); font-weight: 900; }
-    .log p { margin: 4px 0 0; color: var(--muted); line-height: 1.7; }
-
-    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
-    .about .card { padding: clamp(22px, 4vw, 34px); }
-    .about p { color: #475467; line-height: 1.85; }
-    .dark { color: white; background: radial-gradient(circle at top right, rgba(255,255,255,.2), transparent 18rem), linear-gradient(135deg, #111827, #4338ca); }
-    .dark p, .dark .kicker { color: rgba(255,255,255,.78); }
-
-    footer { display: flex; justify-content: space-between; gap: 14px; margin: 28px 0 20px; padding: 18px 4px; color: #667085; font-size: 13px; }
-    footer a { color: var(--brand); font-weight: 900; }
-
-    @media (max-width: 980px) {
-      .nav-links { display: none; }
-      .hero, .about { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .feature { min-height: 240px; }
-    }
-    @media (max-width: 680px) {
-      .wrap { width: min(100% - 22px, 1160px); }
-      .nav { top: 8px; margin-bottom: 26px; }
-      .brand small { display: none; }
-      .btn { padding: 0 14px; }
-      h1 { font-size: 42px; }
-      .toolbar { align-items: stretch; flex-direction: column; }
-      .search { flex: auto; }
-      .grid { grid-template-columns: 1fr; }
-      .log { grid-template-columns: 1fr; gap: 6px; }
-      footer { flex-direction: column; }
-    }
+    :root{--bg:#f6f7fb;--card:rgba(255,255,255,.78);--text:#111827;--muted:#667085;--line:rgba(15,23,42,.1);--brand:#5b3ff2;--brand2:#7c3aed;--shadow:0 24px 70px rgba(15,23,42,.12);--soft:rgba(91,63,242,.1)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(circle at top left,rgba(124,58,237,.16),transparent 32rem),radial-gradient(circle at top right,rgba(79,70,229,.12),transparent 28rem),linear-gradient(145deg,#f8fafc,#eef2f9)}
+    a{color:inherit;text-decoration:none}button,input{font:inherit}button{border:0;cursor:pointer}.wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}
+    .nav{position:sticky;top:14px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 42px;padding:12px 14px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.72);backdrop-filter:blur(18px);box-shadow:0 16px 38px rgba(15,23,42,.08)}
+    .brand{display:flex;align-items:center;gap:12px}.logo{display:grid;width:44px;height:44px;place-items:center;border-radius:14px;color:white;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 12px 28px rgba(91,63,242,.28)}.brand strong{display:block;font-size:15px}.brand small{display:block;color:var(--muted);font-size:12px}
+    .nav-links{display:flex;gap:6px;padding:6px;border:1px solid var(--line);border-radius:16px;background:rgba(248,250,252,.78)}.nav-links a{padding:9px 14px;border-radius:12px;color:#475467;font-size:14px}.nav-links a:hover{background:white;color:var(--text)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:14px;color:white;font-size:14px;font-weight:800;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 14px 30px rgba(91,63,242,.22)}.btn.secondary{color:var(--text);border:1px solid var(--line);background:rgba(255,255,255,.76);box-shadow:none}
+    .hero{display:grid;grid-template-columns:1.05fr .68fr;gap:26px;margin-bottom:34px}.card{border:1px solid var(--line);border-radius:28px;background:var(--card);backdrop-filter:blur(18px);box-shadow:var(--shadow)}.hero-main{padding:clamp(28px,5vw,58px)}.kicker{margin:0 0 12px;color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}h1{max-width:760px;margin:0 0 18px;font-size:clamp(42px,8vw,78px);line-height:.96;letter-spacing:-.07em}h2{margin:0;font-size:clamp(28px,4vw,42px);letter-spacing:-.05em}p{margin-top:0}.lead{max-width:650px;margin-bottom:30px;color:var(--muted);font-size:clamp(16px,2vw,19px);line-height:1.8}.actions{display:flex;flex-wrap:wrap;gap:12px}
+    .side{padding:18px;display:flex;flex-direction:column;gap:16px}.status{min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.68);display:flex;align-items:center;gap:8px;color:#475467;font-size:13px;font-weight:800}.dot{width:9px;height:9px;border-radius:99px;background:#10b981;box-shadow:0 0 0 6px rgba(16,185,129,.12)}.feature{flex:1;min-height:300px;padding:24px;border-radius:24px;color:white;display:flex;flex-direction:column;justify-content:flex-end;background:radial-gradient(circle at top right,rgba(255,255,255,.22),transparent 18rem),linear-gradient(135deg,#4f46e5,#111827)}.feature span{width:fit-content;margin-bottom:14px;padding:7px 10px;border-radius:99px;background:rgba(255,255,255,.16);font-size:12px;font-weight:900}.feature h2{font-size:30px}.feature p{margin:0;color:rgba(255,255,255,.78);line-height:1.7}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stats div{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72)}.stats strong{display:block;font-size:28px;letter-spacing:-.05em}.stats span{color:var(--muted);font-size:13px}
+    .toolbar{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:26px 0 14px}.search{flex:0 1 430px;min-height:52px;padding:0 16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.78);box-shadow:0 16px 38px rgba(15,23,42,.08)}.search input{width:100%;height:52px;border:0;outline:0;background:transparent;color:var(--text)}
+    .tabs{display:flex;gap:10px;overflow-x:auto;padding:4px 0 18px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;min-height:40px;padding:0 16px;border:1px solid var(--line);border-radius:999px;color:#475467;background:rgba(255,255,255,.72);font-weight:900}.tab.active{color:white;border-color:transparent;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 12px 26px rgba(91,63,242,.2)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.item{min-height:205px;padding:18px;border:1px solid var(--line);border-radius:24px;background:var(--card);box-shadow:0 16px 38px rgba(15,23,42,.08);display:flex;flex-direction:column}.badge{width:fit-content;margin-bottom:18px;padding:7px 10px;border-radius:99px;color:var(--brand);background:var(--soft);font-size:12px;font-weight:900}.item h3{margin:0 0 10px;font-size:22px;line-height:1.32;letter-spacing:-.04em}.item p{margin:0;color:var(--muted);line-height:1.7}.open{margin-top:auto;min-height:44px;border-radius:14px;background:#111827;color:white;font-weight:900;display:grid;place-items:center}.open.disabled{background:#eef2f7;color:#98a2b3;pointer-events:none}
+    .empty{display:none;margin-top:18px;padding:30px;border:1px dashed rgba(15,23,42,.16);border-radius:24px;text-align:center;background:rgba(255,255,255,.58)}.empty.show{display:block}.empty span{display:block;margin-bottom:8px;font-size:20px;font-weight:900}.empty p{margin:0;color:var(--muted)}
+    .section{margin-top:34px;padding:clamp(22px,4vw,34px)}.timeline{display:grid;gap:12px;margin-top:20px}.log{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.7)}.log-date{color:var(--brand);font-weight:900}.log p{margin:4px 0 0;color:var(--muted);line-height:1.7}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.about .card{padding:clamp(22px,4vw,34px)}.about p{color:#475467;line-height:1.85}.dark{color:white;background:radial-gradient(circle at top right,rgba(255,255,255,.2),transparent 18rem),linear-gradient(135deg,#111827,#4338ca)}.dark p,.dark .kicker{color:rgba(255,255,255,.78)}footer{display:flex;justify-content:space-between;gap:14px;margin:28px 0 20px;padding:18px 4px;color:#667085;font-size:13px}footer a{color:var(--brand);font-weight:900}
+    @media(max-width:980px){.nav-links{display:none}.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{min-height:240px}}@media(max-width:680px){.wrap{width:min(100% - 22px,1160px)}.nav{top:8px;margin-bottom:26px}.brand small{display:none}.btn{padding:0 14px}h1{font-size:42px}.toolbar{align-items:stretch;flex-direction:column}.search{flex:auto}.grid{grid-template-columns:1fr}.log{grid-template-columns:1fr;gap:6px}footer{flex-direction:column}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="nav">
-      <a class="brand" href="#top">
-        <span class="logo">SQ</span>
-        <span><strong>SwanQ Creative Hub</strong><small>Design index</small></span>
-      </a>
-      <nav class="nav-links">
-        <a href="#library">资源索引</a>
-        <a href="#updates">更新记录</a>
-        <a href="#about">说明</a>
-        <a href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
-      </nav>
+      <a class="brand" href="#top"><span class="logo">SQ</span><span><strong>SwanQ Creative Hub</strong><small>Design index</small></span></a>
+      <nav class="nav-links"><a href="#library">资源索引</a><a href="#updates">更新记录</a><a href="#about">说明</a><a href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a></nav>
       <a class="btn" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="card hero-main">
-          <p class="kicker">Creative Resource Index</p>
-          <h1>Creative resources, neatly organized.</h1>
-          <p class="lead">一个简洁的创意设计资源索引页。现在资源只需要写标题和链接，页面会自动生成卡片。</p>
-          <div class="actions">
-            <a class="btn" href="#library">查看资源</a>
-            <a class="btn secondary" href="#about">查看说明</a>
-          </div>
-        </div>
-        <aside class="card side">
-          <div class="status"><span class="dot"></span><span>Static · Title + Link</span></div>
-          <div class="feature"><span>Simple Mode</span><h2>两行一条资源</h2><p>第一行写标题，第二行写链接。多条资源之间空一行。</p></div>
-          <div class="stats"><div><strong id="total">0</strong><span>资源数量</span></div><div><strong>1</strong><span>维护文件</span></div></div>
-        </aside>
+        <div class="card hero-main"><p class="kicker">Creative Resource Index</p><h1>Creative resources, neatly organized.</h1><p class="lead">一个简洁的创意设计资源索引页。资源支持标签页：在 resources.txt 里写 [PS]、[AI] 这类分组标题即可。</p><div class="actions"><a class="btn" href="#library">查看资源</a><a class="btn secondary" href="#about">查看说明</a></div></div>
+        <aside class="card side"><div class="status"><span class="dot"></span><span>Static · Tabs Enabled</span></div><div class="feature"><span>Simple Mode</span><h2>分组 + 两行资源</h2><p>先写 [分类]，下面每条资源写标题和链接。</p></div><div class="stats"><div><strong id="total">0</strong><span>资源数量</span></div><div><strong id="cat-count">0</strong><span>标签页数量</span></div></div></aside>
       </section>
 
-      <section class="toolbar" id="library">
-        <div><p class="kicker">Library</p><h2>资源索引</h2></div>
-        <div class="search"><input id="q" type="search" placeholder="搜索资源标题" autocomplete="off"></div>
-      </section>
-
+      <section class="toolbar" id="library"><div><p class="kicker">Library</p><h2>资源索引</h2></div><div class="search"><input id="q" type="search" placeholder="搜索资源标题" autocomplete="off"></div></section>
+      <section class="tabs" id="tabs"></section>
       <section class="grid" id="grid"></section>
       <section class="empty" id="empty"><span>未找到匹配资源</span><p>换一个关键词，或者去 resources.txt 新增资源。</p></section>
 
-      <section class="card section" id="updates">
-        <p class="kicker">Changelog</p>
-        <h2>更新记录</h2>
-        <div class="timeline" id="timeline"></div>
-      </section>
+      <section class="card section" id="updates"><p class="kicker">Changelog</p><h2>更新记录</h2><div class="timeline" id="timeline"></div></section>
 
       <section class="about" id="about">
-        <div class="card">
-          <p class="kicker">Update</p>
-          <h2>只写标题和链接</h2>
-          <p>进入 resources.txt，一条资源写两行：第一行标题，第二行链接。多条资源之间空一行。</p>
-          <a class="btn" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">打开作者管理</a>
-        </div>
-        <div class="card dark">
-          <p class="kicker">Notice</p>
-          <h2>内容原则</h2>
-          <p>建议只放原创、授权、开源或公开可访问来源。页面只作为索引展示。</p>
-        </div>
+        <div class="card"><p class="kicker">Update</p><h2>支持标签页</h2><p>写法：先写 [分类]，然后每条资源写两行：标题、链接。比如 [PS] 下面放一批同类资源，[AI] 下面放另一批。</p><a class="btn" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">打开作者管理</a></div>
+        <div class="card dark"><p class="kicker">Notice</p><h2>内容原则</h2><p>建议只放原创、授权、开源或公开可访问来源。页面只作为索引展示。</p></div>
       </section>
     </main>
 
@@ -228,99 +55,20 @@
   </div>
 
   <script>
-    let allResources = [];
-    let query = "";
-
-    const updates = [
-      { date: "2026-06-22", title: "简化资源格式", desc: "resources.txt 改成两行一条资源：标题和链接。" },
-      { date: "2026-06-22", title: "加入作者管理入口", desc: "作者管理会跳转到 GitHub 编辑页，由 GitHub 负责登录和权限。" },
-      { date: "2026-06-22", title: "静态页面上线", desc: "完成 GitHub Pages 单页网站、搜索和资源卡片。" }
-    ];
-
-    const grid = document.querySelector("#grid");
-    const empty = document.querySelector("#empty");
-    const input = document.querySelector("#q");
-
-    function safe(value) {
-      return String(value || "").replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char]));
-    }
-
-    function isUrl(value) {
-      return /^https?:\/\//i.test(String(value || "")) || String(value || "").trim() === "#";
-    }
-
-    function parseText(text) {
-      const lines = text
-        .split(/\r?\n/)
-        .map(line => line.trim())
-        .filter(line => line && !line.startsWith("#"));
-
-      const items = [];
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-
-        if (line.includes("|")) {
-          const parts = line.split("|").map(part => part.trim());
-          const url = parts.length >= 4 ? parts[3] : parts[1];
-          items.push({ title: parts[0] || "未命名资源", url: url || "#" });
-          continue;
-        }
-
-        const next = lines[i + 1] || "#";
-        if (isUrl(next)) {
-          items.push({ title: line, url: next });
-          i++;
-        } else {
-          items.push({ title: line, url: "#" });
-        }
-      }
-      return items;
-    }
-
-    function card(item) {
-      const hasLink = item.url && item.url !== "#";
-      return `
-        <article class="item">
-          <span class="badge">资源</span>
-          <h3>${safe(item.title)}</h3>
-          <p>点击按钮查看对应入口。</p>
-          <a class="open ${hasLink ? "" : "disabled"}" href="${hasLink ? safe(item.url) : "#"}" target="_blank" rel="noopener">${hasLink ? "查看资源" : "待补充"}</a>
-        </article>
-      `;
-    }
-
-    function draw() {
-      const q = query.toLowerCase().trim();
-      const items = allResources.filter(item => !q || item.title.toLowerCase().includes(q));
-      grid.innerHTML = items.map(card).join("");
-      empty.classList.toggle("show", items.length === 0);
-      document.querySelector("#total").textContent = allResources.length;
-    }
-
-    async function load() {
-      try {
-        const response = await fetch(`./resources.txt?v=${Date.now()}`);
-        if (!response.ok) throw new Error("resources.txt not found");
-        allResources = parseText(await response.text());
-      } catch (error) {
-        allResources = [];
-        empty.classList.add("show");
-        empty.querySelector("span").textContent = "resources.txt 读取失败";
-        empty.querySelector("p").textContent = "确认仓库根目录存在 resources.txt，然后等待 GitHub Pages 重新部署。";
-      }
-      draw();
-    }
-
-    input.addEventListener("input", event => {
-      query = event.target.value;
-      draw();
-    });
-
-    document.querySelector("#timeline").innerHTML = updates.map(item => `
-      <div class="log"><div class="log-date">${safe(item.date)}</div><div><strong>${safe(item.title)}</strong><p>${safe(item.desc)}</p></div></div>
-    `).join("");
-    document.querySelector("#year").textContent = new Date().getFullYear();
-    load();
+    let allResources=[];let query="";let active="全部";
+    const updates=[{date:"2026-06-22",title:"加入标签页",desc:"resources.txt 支持 [分类] 分组，页面会自动生成标签页。"},{date:"2026-06-22",title:"简化资源格式",desc:"每条资源只需要标题和链接。"},{date:"2026-06-22",title:"加入作者管理入口",desc:"作者管理跳转到 GitHub 编辑页，由 GitHub 负责登录和权限。"}];
+    const grid=document.querySelector("#grid"),empty=document.querySelector("#empty"),input=document.querySelector("#q"),tabs=document.querySelector("#tabs");
+    function safe(v){return String(v||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+    function isUrl(v){return /^https?:\/\//i.test(String(v||""))||String(v||"").trim()==="#"}
+    function guessCat(title){const t=String(title||"").toLowerCase();if(t.includes("photoshop")||/\bps\b/.test(t))return "PS";if(t.includes("illustrator")||/\bai\b/.test(t))return "AI";if(t.includes("after effects")||/\bae\b/.test(t))return "AE";if(t.includes("premiere")||/\bpr\b/.test(t))return "PR";return "资源"}
+    function parseText(text){const lines=text.split(/\r?\n/).map(x=>x.trim()).filter(x=>x&&!x.startsWith("#"));const items=[];let group="";for(let i=0;i<lines.length;i++){const line=lines[i];const match=line.match(/^\[(.+?)\]$/);if(match){group=match[1].trim()||"资源";continue}if(line.includes("|")){const parts=line.split("|").map(x=>x.trim());const title=parts[0]||"未命名资源";const url=parts.length>=4?parts[3]:parts[1];items.push({title,url:url||"#",cat:group||guessCat(title)});continue}const next=lines[i+1]||"#";if(isUrl(next)){items.push({title:line,url:next,cat:group||guessCat(line)});i++}else{items.push({title:line,url:"#",cat:group||guessCat(line)})}}return items}
+    function cats(){return ["全部",...new Set(allResources.map(x=>x.cat).filter(Boolean))]}
+    function drawTabs(){tabs.innerHTML=cats().map(c=>`<button class="tab ${c===active?"active":""}" data-cat="${safe(c)}">${safe(c)}</button>`).join("")}
+    function card(item){const has=item.url&&item.url!=="#";return `<article class="item"><span class="badge">${safe(item.cat)}</span><h3>${safe(item.title)}</h3><p>点击按钮查看对应入口。</p><a class="open ${has?"":"disabled"}" href="${has?safe(item.url):"#"}" target="_blank" rel="noopener">${has?"查看资源":"待补充"}</a></article>`}
+    function draw(){const q=query.toLowerCase().trim();const items=allResources.filter(x=>(active==="全部"||x.cat===active)&&(!q||x.title.toLowerCase().includes(q)));grid.innerHTML=items.map(card).join("");empty.classList.toggle("show",items.length===0);document.querySelector("#total").textContent=allResources.length;document.querySelector("#cat-count").textContent=Math.max(cats().length-1,0);drawTabs()}
+    async function load(){try{const r=await fetch(`./resources.txt?v=${Date.now()}`);if(!r.ok)throw new Error("resources.txt not found");allResources=parseText(await r.text())}catch(e){allResources=[];empty.classList.add("show");empty.querySelector("span").textContent="resources.txt 读取失败";empty.querySelector("p").textContent="确认仓库根目录存在 resources.txt，然后等待 GitHub Pages 重新部署。"}draw()}
+    tabs.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;active=b.dataset.cat;draw()});input.addEventListener("input",e=>{query=e.target.value;draw()});
+    document.querySelector("#timeline").innerHTML=updates.map(x=>`<div class="log"><div class="log-date">${safe(x.date)}</div><div><strong>${safe(x.title)}</strong><p>${safe(x.desc)}</p></div></div>`).join("");document.querySelector("#year").textContent=new Date().getFullYear();load();
   </script>
 </body>
 </html>
