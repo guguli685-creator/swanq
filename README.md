@@ -12,9 +12,28 @@ Recommended Pages settings:
 - Branch: main
 - Folder: /root
 
-## Update
+## Update resources
 
-Edit `index.html` and update the `SITE_DATA` section near the bottom of the file.
+Edit `resources.txt` instead of editing `index.html`.
+
+Format:
+
+```text
+标题 | 分类 | 简短说明 | 链接 | 标签1,标签2,标签3 | 日期
+```
+
+Example:
+
+```text
+常用工具导航 | 工具 | 整理在线压缩、格式转换、配色、排版和效率工具。 | https://example.com | 工具,效率,导航 | 2026-06-22
+```
+
+Rules:
+
+- One resource per line.
+- Use `#` when the link is not ready.
+- Lines starting with `#` are comments.
+- Do not use the vertical bar `|` inside titles or descriptions.
 
 ## Notice
 
