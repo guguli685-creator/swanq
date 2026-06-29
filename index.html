@@ -4,13 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="SwanQ Creative Hub - a clean static index for creative resources." />
+  <meta name="theme-color" content="#f8fafc" id="themeColor" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="SwanQ Hub" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
   <title>SwanQ Creative Hub</title>
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%25" stop-color="%237c3aed"/><stop offset="100%25" stop-color="%235b3ff2"/></linearGradient></defs><rect width="64" height="64" rx="18" fill="url(%23g)"/><text x="32" y="39" text-anchor="middle" font-size="24" font-family="Arial,sans-serif" font-weight="700" fill="white">SQ</text></svg>' />
+
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="apple-touch-icon" href="./icon.svg" />
+
+  <script>
+    const savedTheme = localStorage.getItem("swanq-theme");
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+  </script>
 
   <style>
     :root{
       --bg:#f6f7fb;
+      --bg2:#eef2f9;
       --card:rgba(255,255,255,.78);
+      --panel:rgba(255,255,255,.92);
       --text:#111827;
       --muted:#667085;
       --line:rgba(15,23,42,.1);
@@ -20,19 +36,41 @@
       --soft:rgba(91,63,242,.1);
       --gold:#d8a321;
       --gold2:#f3c744;
+      --black:#111827;
+      --surface:#f8fafc;
+      --nav:rgba(255,255,255,.72);
+    }
+
+    html[data-theme="dark"]{
+      --bg:#070913;
+      --bg2:#111827;
+      --card:rgba(17,24,39,.72);
+      --panel:rgba(17,24,39,.94);
+      --text:#eef2ff;
+      --muted:#98a2b3;
+      --line:rgba(255,255,255,.11);
+      --brand:#8b7cf6;
+      --brand2:#a855f7;
+      --shadow:0 24px 70px rgba(0,0,0,.34);
+      --soft:rgba(139,124,246,.16);
+      --black:#f8fafc;
+      --surface:#0b1020;
+      --nav:rgba(8,13,26,.72);
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       min-height:100vh;
       color:var(--text);
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
       background:
-        radial-gradient(circle at top left,rgba(124,58,237,.16),transparent 32rem),
-        radial-gradient(circle at top right,rgba(79,70,229,.12),transparent 28rem),
-        linear-gradient(145deg,#f8fafc,#eef2f9);
+        radial-gradient(circle at top left,rgba(124,58,237,.18),transparent 32rem),
+        radial-gradient(circle at top right,rgba(79,70,229,.14),transparent 28rem),
+        linear-gradient(145deg,var(--bg),var(--bg2));
     }
 
     body.modal-open{overflow:hidden}
@@ -54,12 +92,13 @@
       padding:12px 14px;
       border:1px solid var(--line);
       border-radius:22px;
-      background:rgba(255,255,255,.72);
+      background:var(--nav);
       backdrop-filter:blur(18px);
       box-shadow:0 16px 38px rgba(15,23,42,.08);
     }
 
     .brand{display:flex;align-items:center;gap:12px}
+
     .logo{
       display:grid;
       width:44px;
@@ -81,17 +120,21 @@
       padding:6px;
       border:1px solid var(--line);
       border-radius:16px;
-      background:rgba(248,250,252,.78);
+      background:rgba(148,163,184,.08);
     }
 
     .nav-links a{
       padding:9px 14px;
       border-radius:12px;
-      color:#475467;
+      color:var(--muted);
       font-size:14px;
+      font-weight:700;
     }
 
-    .nav-links a:hover{background:white;color:var(--text)}
+    .nav-links a:hover{
+      background:rgba(255,255,255,.12);
+      color:var(--text);
+    }
 
     .nav-actions{
       display:flex;
@@ -111,12 +154,13 @@
       font-weight:800;
       background:linear-gradient(135deg,var(--brand),var(--brand2));
       box-shadow:0 14px 30px rgba(91,63,242,.22);
+      white-space:nowrap;
     }
 
     .btn.secondary{
       color:var(--text);
       border:1px solid var(--line);
-      background:rgba(255,255,255,.76);
+      background:rgba(255,255,255,.08);
       box-shadow:none;
     }
 
@@ -124,6 +168,18 @@
       color:#2f2410;
       background:linear-gradient(135deg,var(--gold2),var(--gold));
       box-shadow:0 14px 30px rgba(216,163,33,.24);
+    }
+
+    .icon-btn{
+      display:grid;
+      width:44px;
+      height:44px;
+      place-items:center;
+      border:1px solid var(--line);
+      border-radius:14px;
+      color:var(--text);
+      background:rgba(255,255,255,.08);
+      font-size:18px;
     }
 
     .hero{
@@ -142,6 +198,7 @@
     }
 
     .hero-main{padding:clamp(28px,5vw,58px)}
+
     .kicker{
       margin:0 0 12px;
       color:var(--brand);
@@ -166,6 +223,7 @@
     }
 
     p{margin-top:0}
+
     .lead{
       max-width:650px;
       margin-bottom:30px;
@@ -188,11 +246,11 @@
       padding:0 14px;
       border:1px solid var(--line);
       border-radius:16px;
-      background:rgba(255,255,255,.68);
+      background:rgba(255,255,255,.08);
       display:flex;
       align-items:center;
       gap:8px;
-      color:#475467;
+      color:var(--muted);
       font-size:13px;
       font-weight:800;
     }
@@ -230,11 +288,7 @@
     }
 
     .feature h2{font-size:30px}
-    .feature p{
-      margin:0;
-      color:rgba(255,255,255,.78);
-      line-height:1.7;
-    }
+    .feature p{margin:0;color:rgba(255,255,255,.78);line-height:1.7}
 
     .stats{
       display:grid;
@@ -246,7 +300,7 @@
       padding:18px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.72);
+      background:rgba(255,255,255,.08);
     }
 
     .stats strong{
@@ -271,7 +325,7 @@
       padding:0 16px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.08);
       box-shadow:0 16px 38px rgba(15,23,42,.08);
     }
 
@@ -283,6 +337,8 @@
       background:transparent;
       color:var(--text);
     }
+
+    .search input::placeholder{color:var(--muted)}
 
     .tabs{
       display:flex;
@@ -300,8 +356,8 @@
       padding:0 16px;
       border:1px solid var(--line);
       border-radius:999px;
-      color:#475467;
-      background:rgba(255,255,255,.72);
+      color:var(--muted);
+      background:rgba(255,255,255,.08);
       font-weight:900;
     }
 
@@ -357,16 +413,16 @@
       margin-top:auto;
       min-height:44px;
       border-radius:14px;
-      background:#111827;
-      color:white;
+      background:var(--black);
+      color:var(--surface);
       font-weight:900;
       display:grid;
       place-items:center;
     }
 
     .open.disabled{
-      background:#eef2f7;
-      color:#98a2b3;
+      background:rgba(148,163,184,.14);
+      color:var(--muted);
       pointer-events:none;
     }
 
@@ -374,13 +430,14 @@
       display:none;
       margin-top:18px;
       padding:30px;
-      border:1px dashed rgba(15,23,42,.16);
+      border:1px dashed var(--line);
       border-radius:24px;
       text-align:center;
-      background:rgba(255,255,255,.58);
+      background:rgba(255,255,255,.06);
     }
 
     .empty.show{display:block}
+
     .empty span{
       display:block;
       margin-bottom:8px;
@@ -408,10 +465,11 @@
       padding:16px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.7);
+      background:rgba(255,255,255,.06);
     }
 
     .log-date{color:var(--brand);font-weight:900}
+
     .log p{
       margin:4px 0 0;
       color:var(--muted);
@@ -426,8 +484,9 @@
     }
 
     .about .card{padding:clamp(22px,4vw,34px)}
+
     .about p{
-      color:#475467;
+      color:var(--muted);
       line-height:1.85;
     }
 
@@ -440,17 +499,109 @@
 
     .dark p,.dark .kicker{color:rgba(255,255,255,.78)}
 
+    .author{
+      display:grid;
+      grid-template-columns:86px 1fr;
+      gap:18px;
+      align-items:center;
+      margin-top:18px;
+    }
+
+    .avatar{
+      display:grid;
+      width:86px;
+      height:86px;
+      place-items:center;
+      border-radius:26px;
+      color:white;
+      font-size:28px;
+      font-weight:950;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow:0 18px 42px rgba(91,63,242,.25);
+    }
+
+    .author h3{
+      margin:0 0 8px;
+      font-size:26px;
+      letter-spacing:-.04em;
+    }
+
+    .author p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .author-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    details.disclaimer{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:rgba(255,255,255,.06);
+      overflow:hidden;
+    }
+
+    details.disclaimer summary{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      min-height:62px;
+      padding:0 20px;
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+      list-style:none;
+    }
+
+    details.disclaimer summary::-webkit-details-marker{display:none}
+
+    details.disclaimer summary::after{
+      content:"+";
+      display:grid;
+      width:30px;
+      height:30px;
+      place-items:center;
+      border:1px solid var(--line);
+      border-radius:10px;
+      color:var(--muted);
+    }
+
+    details.disclaimer[open] summary::after{content:"−"}
+
+    .disclaimer-body{
+      padding:0 20px 20px;
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+    .disclaimer-body ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .disclaimer-body li{margin:8px 0}
+
     footer{
       display:flex;
       justify-content:space-between;
       gap:14px;
       margin:28px 0 20px;
       padding:18px 4px;
-      color:#667085;
+      color:var(--muted);
       font-size:13px;
     }
 
-    footer a{color:var(--brand);font-weight:900}
+    footer a,footer button{
+      color:var(--brand);
+      font-weight:900;
+    }
 
     .donate-modal{
       position:fixed;
@@ -470,9 +621,9 @@
       position:relative;
       width:min(420px,100%);
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.16);
       border-radius:30px;
-      background:rgba(255,255,255,.92);
+      background:var(--panel);
       box-shadow:0 34px 90px rgba(15,23,42,.32);
       animation:donateIn .18s ease-out;
     }
@@ -510,7 +661,7 @@
 
     .donate-head p{
       margin:0;
-      color:#667085;
+      color:var(--muted);
       line-height:1.7;
       font-size:14px;
     }
@@ -518,9 +669,9 @@
     .donate-code{
       margin:0 22px 18px;
       padding:14px;
-      border:1px solid rgba(15,23,42,.1);
+      border:1px solid var(--line);
       border-radius:24px;
-      background:#f8fafc;
+      background:rgba(148,163,184,.1);
     }
 
     .donate-code img{
@@ -548,16 +699,26 @@
       width:38px;
       height:38px;
       border-radius:14px;
-      color:#475467;
-      background:rgba(15,23,42,.06);
+      color:var(--muted);
+      background:rgba(148,163,184,.12);
       font-size:22px;
       line-height:1;
     }
 
     .donate-close:hover{
-      background:rgba(15,23,42,.1);
-      color:#111827;
+      background:rgba(148,163,184,.2);
+      color:var(--text);
     }
+
+    .install-tip{
+      display:none;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .install-tip.show{display:block}
 
     @media(max-width:980px){
       .nav-links{display:none}
@@ -578,6 +739,7 @@
       .search{flex:auto}
       .grid{grid-template-columns:1fr}
       .log{grid-template-columns:1fr;gap:6px}
+      .author{grid-template-columns:1fr}
       footer{flex-direction:column}
       .donate-panel{border-radius:26px}
       .donate-head h2{font-size:24px}
@@ -599,11 +761,12 @@
       <nav class="nav-links">
         <a href="#library">资源索引</a>
         <a href="#updates">更新记录</a>
+        <a href="#author">作者</a>
         <a href="#about">说明</a>
-        <a href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
       </nav>
 
       <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="切换暗色模式">◐</button>
         <button class="btn secondary donate-open" type="button">赞赏支持</button>
         <a class="btn" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
       </div>
@@ -615,17 +778,21 @@
           <p class="kicker">Creative Resource Index</p>
           <h1>Creative resources, neatly organized.</h1>
           <p class="lead">一个简洁的创意设计资源索引页。资源支持标签页：在 resources.txt 里写 [PS]、[AI] 这类分组标题即可。</p>
+
           <div class="actions">
             <a class="btn" href="#library">查看资源</a>
             <button class="btn gold donate-open" type="button">赞赏支持</button>
+            <button class="btn secondary" id="installBtn" type="button">安装到桌面</button>
             <a class="btn secondary" href="#about">查看说明</a>
           </div>
+
+          <p class="install-tip" id="installTip">手机浏览器可通过菜单选择“添加到主屏幕”。桌面浏览器可使用地址栏安装入口。</p>
         </div>
 
         <aside class="card side">
           <div class="status">
             <span class="dot"></span>
-            <span>Static · Tabs Enabled</span>
+            <span>Static · PWA Ready</span>
           </div>
 
           <div class="feature">
@@ -671,6 +838,33 @@
         <div class="timeline" id="timeline"></div>
       </section>
 
+      <section class="about" id="author">
+        <div class="card">
+          <p class="kicker">Author</p>
+          <h2>作者卡片</h2>
+
+          <div class="author">
+            <div class="avatar">SQ</div>
+            <div>
+              <h3>余宣灵</h3>
+              <p>SwanQ Creative Hub 的维护者。页面用于整理创意设计资源、工具入口和公开索引。</p>
+            </div>
+          </div>
+
+          <div class="author-links">
+            <a class="btn" href="https://github.com/guguli685-creator/swanq" target="_blank" rel="noopener">GitHub 仓库</a>
+            <button class="btn gold donate-open" type="button">赞赏支持</button>
+            <button class="btn secondary" id="installBtn2" type="button">安装到桌面</button>
+          </div>
+        </div>
+
+        <div class="card dark">
+          <p class="kicker">PWA</p>
+          <h2>桌面图标</h2>
+          <p>支持添加到手机桌面或电脑应用列表。部署到 GitHub Pages 后，浏览器会读取 manifest 和 service worker。</p>
+        </div>
+      </section>
+
       <section class="about" id="about">
         <div class="card">
           <p class="kicker">Update</p>
@@ -679,10 +873,22 @@
           <a class="btn" href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">打开作者管理</a>
         </div>
 
-        <div class="card dark">
+        <div class="card">
           <p class="kicker">Notice</p>
-          <h2>内容原则</h2>
-          <p>建议只放原创、授权、开源或公开可访问来源。页面只作为索引展示。</p>
+          <h2>免责说明</h2>
+
+          <details class="disclaimer">
+            <summary>查看完整说明</summary>
+            <div class="disclaimer-body">
+              <ul>
+                <li>本站仅作为资源索引展示，不直接存储第三方资源文件。</li>
+                <li>资源链接来源于公开网页、原创内容、授权内容或用户自行维护的入口。</li>
+                <li>访问第三方链接时，请自行确认其版权、授权范围与使用条件。</li>
+                <li>如有内容不适合展示，可通过仓库 Issue 或作者管理入口进行处理。</li>
+                <li>页面为静态站点，无账号系统，无后端数据库。</li>
+              </ul>
+            </div>
+          </details>
         </div>
       </section>
     </main>
@@ -690,10 +896,10 @@
     <footer>
       <span>© <span id="year"></span> SwanQ Creative Hub</span>
       <span>
-        <button class="donate-open" type="button" style="padding:0;border:0;background:transparent;color:#5b3ff2;font-weight:900;">赞赏支持</button>
+        <button class="donate-open" type="button" style="padding:0;border:0;background:transparent;">赞赏支持</button>
         ·
         <a href="https://github.com/guguli685-creator/swanq/edit/main/resources.txt" target="_blank" rel="noopener">作者管理</a>
-        · Static site · No backend
+        · Static site · PWA
       </span>
     </footer>
   </div>
@@ -723,12 +929,14 @@
     let allResources=[];
     let query="";
     let active="全部";
+    let deferredPrompt=null;
 
     const updates=[
       {date:"2026-06-22",title:"加入标签页",desc:"resources.txt 支持 [分类] 分组，页面会自动生成标签页。"},
       {date:"2026-06-22",title:"简化资源格式",desc:"每条资源只需要标题和链接。"},
       {date:"2026-06-22",title:"加入作者管理入口",desc:"作者管理跳转到 GitHub 编辑页，由 GitHub 负责登录和权限。"},
-      {date:"2026-06-29",title:"加入赞赏弹窗",desc:"新增赞赏支持入口，点击后展示赞赏码。"}
+      {date:"2026-06-29",title:"加入赞赏弹窗",desc:"新增赞赏支持入口，点击后展示赞赏码。"},
+      {date:"2026-06-29",title:"加入 PWA 与暗色模式",desc:"支持桌面图标、安装入口、主题切换、作者卡片和免责说明折叠卡。"}
     ];
 
     const grid=document.querySelector("#grid");
@@ -740,6 +948,12 @@
     const donateClose=document.querySelector("#donateClose");
     const donateCancel=document.querySelector("#donateCancel");
     const donateOpenButtons=document.querySelectorAll(".donate-open");
+
+    const themeToggle=document.querySelector("#themeToggle");
+    const themeColor=document.querySelector("#themeColor");
+    const installBtn=document.querySelector("#installBtn");
+    const installBtn2=document.querySelector("#installBtn2");
+    const installTip=document.querySelector("#installTip");
 
     function safe(v){
       return String(v||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -855,6 +1069,30 @@
       document.body.classList.remove("modal-open");
     }
 
+    function applyTheme(theme){
+      document.documentElement.dataset.theme=theme;
+      localStorage.setItem("swanq-theme",theme);
+      themeColor.setAttribute("content",theme==="dark" ? "#070913" : "#f8fafc");
+      themeToggle.textContent=theme==="dark" ? "☀" : "◐";
+    }
+
+    function toggleTheme(){
+      const current=document.documentElement.dataset.theme==="dark" ? "dark" : "light";
+      applyTheme(current==="dark" ? "light" : "dark");
+    }
+
+    async function installApp(){
+      if(deferredPrompt){
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt=null;
+        return;
+      }
+
+      installTip.classList.add("show");
+      setTimeout(()=>installTip.classList.remove("show"),5200);
+    }
+
     donateOpenButtons.forEach(btn=>btn.addEventListener("click",openDonate));
     donateClose.addEventListener("click",closeDonate);
     donateCancel.addEventListener("click",closeDonate);
@@ -879,6 +1117,21 @@
       draw();
     });
 
+    themeToggle.addEventListener("click",toggleTheme);
+    installBtn.addEventListener("click",installApp);
+    installBtn2.addEventListener("click",installApp);
+
+    window.addEventListener("beforeinstallprompt",e=>{
+      e.preventDefault();
+      deferredPrompt=e;
+    });
+
+    window.addEventListener("appinstalled",()=>{
+      deferredPrompt=null;
+      installTip.textContent="已安装到桌面。";
+      installTip.classList.add("show");
+    });
+
     document.querySelector("#timeline").innerHTML=updates.map(x=>`
       <div class="log">
         <div class="log-date">${safe(x.date)}</div>
@@ -891,7 +1144,14 @@
 
     document.querySelector("#year").textContent=new Date().getFullYear();
 
+    applyTheme(document.documentElement.dataset.theme || "light");
     load();
+
+    if("serviceWorker" in navigator){
+      window.addEventListener("load",()=>{
+        navigator.serviceWorker.register("./sw.js").catch(()=>{});
+      });
+    }
   </script>
 </body>
 </html>
