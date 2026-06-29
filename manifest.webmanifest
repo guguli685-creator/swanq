@@ -1,0 +1,19 @@
+{
+  "name": "SwanQ Creative Hub",
+  "short_name": "SwanQ Hub",
+  "description": "A clean static index for creative resources.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070913",
+  "theme_color": "#5b3ff2",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

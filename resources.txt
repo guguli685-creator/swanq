@@ -1,48 +1,11 @@
-# SwanQ Creative Hub resources
-# 写法：一条资源只写两行。
-# 第一行：标题
-# 第二行：链接
-# 多条资源之间空一行。
-# 标题建议保持中性。
+[PS]
+Adobe Photoshop 官方
+https://www.adobe.com/products/photoshop.html
 
-win Photoshop CC 2018 x64
-https://www.123pan.cn/s/DV5eVv-NUwfh
+[AI]
+Adobe Illustrator 官方
+https://www.adobe.com/products/illustrator.html
 
-win Photoshop CC 2019 x64
-https://www.123pan.cn/s/DV5eVv-b5xfh
-
-win Photoshop CC 2020 x64
-https://www.123pan.cn/s/DV5eVv-9ulph
-
-win Photoshop CC 2021 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-VaTfh
-
-win Photoshop CC 2022 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-jaTfh
-
-win Photoshop CC 2023 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-znzph
-
-win Photoshop CC 2024 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-Lnzph
-
-win Photoshop CC 2025 x64
-https://www.123pan.cn/s/DV5eVv-OH2ph
-
-win Photoshop CC 2026 x64
-https://www.123pan.cn/s/DV5eVv-OUwfh
-
-设计模板索引
-#
-
-常用工具导航
-#
-
-学习教程目录
-#
-
-字体来源索引
-#
-
-展示样机入口
-#
+[素材]
+Unsplash
+https://unsplash.com
