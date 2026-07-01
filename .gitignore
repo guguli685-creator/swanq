@@ -1,3 +1,5 @@
 resources.private.json
+resources.private.txt
+.swanq-password
 .DS_Store
 node_modules/
