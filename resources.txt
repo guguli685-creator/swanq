@@ -1,5 +1,53 @@
 # SwanQ Creative Hub resources
+# 写法：一条资源只写两行。
+# 第一行：标题
+# 第二行：链接
+# 多条资源之间空一行。
+# 也可以用 [分类] 新建分组。
 
-[General]
-Home
+[PS]
+win Photoshop CC 2018 x64
+#
+
+win Photoshop CC 2019 x64
+#
+
+win Photoshop CC 2020 x64
+#
+
+win Photoshop CC 2021 x64
+#
+
+win Photoshop CC 2022 x64
+#
+
+win Photoshop CC 2023 x64
+#
+
+win Photoshop CC 2024 x64
+#
+
+win Photoshop CC 2025 x64
+#
+
+win Photoshop CC 2026 x64
+#
+
+[资源]
+设计模板索引
+#
+
+常用工具导航
+#
+
+[教程]
+学习教程目录
+#
+
+[字体]
+字体来源索引
+#
+
+[样机]
+展示样机入口
 #
