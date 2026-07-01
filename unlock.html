@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8fafc">
+  <title>SwanQ Unlock</title>
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <style>
+    :root{--text:#111827;--muted:#667085;--line:rgba(15,23,42,.1);--brand:#5b3ff2}
+    *{box-sizing:border-box}
+    body{min-height:100vh;margin:0;display:grid;place-items:center;padding:22px;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:radial-gradient(circle at top left,rgba(124,58,237,.20),transparent 32rem),radial-gradient(circle at bottom right,rgba(79,70,229,.16),transparent 28rem),linear-gradient(145deg,#f6f7fb,#eef2f9)}
+    .page{width:min(520px,100%);display:grid;gap:16px}
+    .brand{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:13px;font-weight:800}
+    .brand span:first-child{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;color:white;background:linear-gradient(135deg,#5b3ff2,#7c3aed)}
+    .swanq-lock{position:relative;min-height:430px;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(255,255,255,.58);border-radius:34px;background:radial-gradient(circle at 50% 15%,rgba(255,255,255,.62),transparent 34%),rgba(255,255,255,.34);backdrop-filter:blur(24px) saturate(1.35);-webkit-backdrop-filter:blur(24px) saturate(1.35);box-shadow:0 28px 90px rgba(15,23,42,.16)}
+    .swanq-lock::before{content:"";position:absolute;inset:22px;border-radius:28px;background:rgba(255,255,255,.28);filter:blur(10px);pointer-events:none}
+    .swanq-lock-box{position:relative;z-index:1;width:min(320px,calc(100vw - 68px));display:flex;flex-direction:column;align-items:center;gap:15px;padding:30px 24px 28px;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.74),rgba(255,255,255,.48));backdrop-filter:blur(30px) saturate(1.55);-webkit-backdrop-filter:blur(30px) saturate(1.55);border:1px solid rgba(255,255,255,.76);box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 24px 70px rgba(15,23,42,.16)}
+    .swanq-lock-icon{width:56px;height:56px;border-radius:20px;display:grid;place-items:center;font-size:25px;color:#fff;user-select:none;background:linear-gradient(180deg,rgba(17,24,39,.94),rgba(17,24,39,.78));box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 14px 30px rgba(17,24,39,.22)}
+    .swanq-lock-title{margin:2px 0 0;font-size:18px;font-weight:650;letter-spacing:-.03em}
+    .swanq-lock-input{width:100%;height:48px;border:1px solid rgba(255,255,255,.74);border-radius:17px;padding:0 15px;outline:none;font-size:14px;text-align:center;color:#111827;background:rgba(255,255,255,.50);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.74),0 8px 22px rgba(15,23,42,.06)}
+    .swanq-lock-input::placeholder{color:rgba(17,24,39,.42)}
+    .swanq-lock-input:focus{border-color:rgba(17,24,39,.28);background:rgba(255,255,255,.66)}
+    .swanq-lock-tip{margin:0;font-size:13px;line-height:1.6;color:rgba(17,24,39,.54);text-align:center}
+    .swanq-lock-msg{min-height:18px;font-size:12px;color:#dc2626;text-align:center}
+    .back{display:block;width:max-content;margin:0 auto;color:var(--brand);font-size:13px;font-weight:900;text-decoration:none}
+    @media (prefers-color-scheme: dark){:root{--text:#f8fafc;--muted:#98a2b3;--line:rgba(255,255,255,.12);--brand:#a78bfa}body{background:radial-gradient(circle at top left,rgba(124,58,237,.20),transparent 32rem),radial-gradient(circle at bottom right,rgba(79,70,229,.15),transparent 28rem),linear-gradient(145deg,#070913,#111827)}.swanq-lock{background:radial-gradient(circle at 50% 18%,rgba(255,255,255,.18),transparent 32%),rgba(2,6,23,.42);border-color:rgba(255,255,255,.12);box-shadow:0 28px 90px rgba(0,0,0,.34)}.swanq-lock::before{background:rgba(255,255,255,.08)}.swanq-lock-box{background:linear-gradient(180deg,rgba(30,41,59,.62),rgba(15,23,42,.42));border-color:rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 28px 80px rgba(0,0,0,.34)}.swanq-lock-input{color:#f8fafc;background:rgba(15,23,42,.36);border-color:rgba(255,255,255,.16)}.swanq-lock-input::placeholder{color:rgba(248,250,252,.44)}.swanq-lock-tip{color:rgba(248,250,252,.56)}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand"><span>SQ</span><span>SwanQ Creative Hub</span></div>
+    <section class="swanq-lock">
+      <form class="swanq-lock-box" id="unlockForm">
+        <div class="swanq-lock-icon">🔒</div>
+        <h1 class="swanq-lock-title">输入访问密码</h1>
+        <input class="swanq-lock-input" id="password" type="password" placeholder="Password" autocomplete="current-password">
+        <p class="swanq-lock-tip">仅限授权访问</p>
+        <div class="swanq-lock-msg" id="message"></div>
+      </form>
+    </section>
+    <a class="back" href="./">返回首页</a>
+  </main>
+  <script src="./resources.locked.js"></script>
+  <script>
+    const CACHE_KEY="swanq_static_resources";
+    const id=new URLSearchParams(location.search).get("id")||"";
+    const form=document.querySelector("#unlockForm");
+    const input=document.querySelector("#password");
+    const message=document.querySelector("#message");
+    setTimeout(()=>input.focus(),80);
+    function normalizeResources(resources){if(!Array.isArray(resources))return [];return resources.map((item,index)=>({id:String(item.id||index+1),title:String(item.title||"未命名资源"),url:String(item.url||"#"),group:String(item.group||item.cat||"资源")}))}
+    function openTarget(resources){const list=normalizeResources(resources);const target=list.find(item=>item.id===String(id));if(!target){message.textContent="资源不存在";return false}if(!target.url||target.url==="#"){message.textContent="资源待补充";return false}message.textContent="验证通过，正在打开";location.replace(target.url);return true}
+    try{const cached=sessionStorage.getItem(CACHE_KEY);if(cached)openTarget(JSON.parse(cached))}catch{sessionStorage.removeItem(CACHE_KEY)}
+    form.addEventListener("submit",async event=>{event.preventDefault();const password=input.value.trim();if(!password){message.textContent="请输入密码";return}message.textContent="正在验证";try{const resources=await decryptResources(password);sessionStorage.setItem(CACHE_KEY,JSON.stringify(normalizeResources(resources)));openTarget(resources)}catch(error){message.textContent=error&&error.message==="missing"?"缺少加密资源文件":"密码错误";input.select()}});
+    async function decryptResources(password){const locked=window.SWANQ_LOCKED_DATA;if(!locked)throw new Error("missing");const salt=base64ToBytes(locked.salt);const iv=base64ToBytes(locked.iv);const data=base64ToBytes(locked.data);const tag=base64ToBytes(locked.tag);const encryptedWithTag=concatBytes(data,tag);const passwordKey=await crypto.subtle.importKey("raw",new TextEncoder().encode(password),"PBKDF2",false,["deriveKey"]);const aesKey=await crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:locked.iterations,hash:locked.hash||"SHA-256"},passwordKey,{name:"AES-GCM",length:256},false,["decrypt"]);const decrypted=await crypto.subtle.decrypt({name:"AES-GCM",iv},aesKey,encryptedWithTag);return JSON.parse(new TextDecoder().decode(decrypted))}
+    function base64ToBytes(base64){const binary=atob(base64);const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);return bytes}
+    function concatBytes(a,b){const result=new Uint8Array(a.length+b.length);result.set(a,0);result.set(b,a.length);return result}
+  </script>
+</body>
+</html>
