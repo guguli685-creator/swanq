@@ -6,57 +6,48 @@
 # 也可以用 [分类] 新建分组。
 
 [PS]
-win Photoshop CC 2018
-https://1815086742.share.123pan.cn/123pan/DV5eVv-dBTfh
-#
+win Photoshop CC 2018 x64
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2019 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-xLDph
-
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2020 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-jnzph
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2021 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-3BTfh
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2022 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-Qulph
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2023 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-uUwfh
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2024 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-Eulph
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2025 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-UUwfh
-#
+https://www.adobe.com/products/photoshop.html
 
 win Photoshop CC 2026 x64
-#
+https://www.adobe.com/products/photoshop.html
 
 [资源]
 设计模板索引
-#
+https://github.com/guguli685-creator/swanq
 
 常用工具导航
-#
+https://github.com/guguli685-creator/swanq
 
 [教程]
 学习教程目录
-#
+https://helpx.adobe.com/photoshop/tutorials.html
 
 [字体]
 字体来源索引
-#
+https://fonts.google.com/
 
 [样机]
 展示样机入口
-#
+https://github.com/guguli685-creator/swanq
