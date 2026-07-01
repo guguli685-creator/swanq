@@ -1,48 +1,51 @@
 # SwanQ Creative Hub resources
-# 写法：一条资源只写两行。
-# 第一行：标题
-# 第二行：链接
-# 多条资源之间空一行。
-# 标题建议保持中性。
+# 真实资源链接已加密到 resources.locked.js。
+# 不要在这个文件里直接写真实链接。
+# 修改资源时：编辑 resources.private.json，然后运行 node build-resources.mjs。
 
+[PS]
 win Photoshop CC 2018 x64
-https://www.123pan.cn/s/DV5eVv-NUwfh
+https://guguli685-creator.github.io/swanq/unlock.html?id=1
 
 win Photoshop CC 2019 x64
-https://www.123pan.cn/s/DV5eVv-b5xfh
+https://guguli685-creator.github.io/swanq/unlock.html?id=2
 
 win Photoshop CC 2020 x64
-https://www.123pan.cn/s/DV5eVv-9ulph
+https://guguli685-creator.github.io/swanq/unlock.html?id=3
 
 win Photoshop CC 2021 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-VaTfh
+https://guguli685-creator.github.io/swanq/unlock.html?id=4
 
 win Photoshop CC 2022 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-jaTfh
+https://guguli685-creator.github.io/swanq/unlock.html?id=5
 
 win Photoshop CC 2023 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-znzph
+https://guguli685-creator.github.io/swanq/unlock.html?id=6
 
 win Photoshop CC 2024 x64
-https://1815086742.share.123pan.cn/123pan/DV5eVv-Lnzph
+https://guguli685-creator.github.io/swanq/unlock.html?id=7
 
 win Photoshop CC 2025 x64
-https://www.123pan.cn/s/DV5eVv-OH2ph
+https://guguli685-creator.github.io/swanq/unlock.html?id=8
 
 win Photoshop CC 2026 x64
-https://www.123pan.cn/s/DV5eVv-OUwfh
+https://guguli685-creator.github.io/swanq/unlock.html?id=9
 
+[资源]
 设计模板索引
-#
+https://guguli685-creator.github.io/swanq/unlock.html?id=10
 
 常用工具导航
-#
+https://guguli685-creator.github.io/swanq/unlock.html?id=11
 
+[教程]
 学习教程目录
-#
+https://guguli685-creator.github.io/swanq/unlock.html?id=12
 
+[字体]
 字体来源索引
-#
+https://guguli685-creator.github.io/swanq/unlock.html?id=13
 
+[样机]
 展示样机入口
-#
+https://guguli685-creator.github.io/swanq/unlock.html?id=14
