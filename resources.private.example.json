@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "group": "PS",
+    "title": "SwanQ 示例资源",
+    "url": "https://example.com/resource-1"
+  },
+  {
+    "id": "2",
+    "group": "工具",
+    "title": "工具下载入口",
+    "url": "https://example.com/resource-2"
+  }
+]
